@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" th:src="@{RegistrationForm.js}"></script>
+  <script>
+    var emailUsed = [[${emailUsed}]]
+  </script>
+</head>
+<body onload="javascript:emailUsedAlert(emailUsed)">
+
+<div class="container">
+
+  <form class="well form-horizontal" th:action="@{/successPage}" th:object="${c}" method="post"  id="contact_form" onsubmit="return validateForm()">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Sign Up</legend>
+
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">E-Mail</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input id="email" placeholder="E-Mail Address" class="form-control"  type="text" th:field="*{email_address}" th:onblur="javascript:validateEmail()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Title</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="title" placeholder="Title" class="form-control" type="text" th:field="*{title}" th:onblur="javascript:validateString('title',5)">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">First Name</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input  name="first_name" placeholder="First Name" class="form-control"  type="text" th:field="*{first_name}" th:onblur="javascript:validateString('first_name',50)">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Last Name</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="last_name" placeholder="Last Name" class="form-control"  type="text" th:field="*{last_name}" th:onblur="javascript:validateString('last_name','50')">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Address Line 1</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="address_line_1" placeholder="Address line 1" class="form-control" type="text" th:field="*{address_line_1}" th:onblur="javascript:validateString('address_line_1','255')">
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Address Line 2</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="address_line_2" placeholder="Address line 2" class="form-control" type="text" th:field="*{address_line_2}" th:onblur="javascript:validateStringNullAllowed('address_line_2','255')">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">City</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="city" placeholder="city" class="form-control"  type="text" th:field="*{city}" th:onblur="javascript:validateStringNullAllowed('city',255)">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Postcode</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="postcode" placeholder="Postcode" class="form-control"  type="text" th:field="*{postcode}" th:onblur="javascript:validateString('postcode',10)">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Phone #</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+            <input id="phone" placeholder="07467342746" class="form-control" type="text" th:field="*{phone_number}" th:onblur="javascript:validatePhone()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Success message -->
+      <div class="alert alert-success" role="alert" id="success_message" style="display:none">Success <i class="glyphicon glyphicon-thumbs-up"></i> Sign up successful!</div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-warning">Send <span class="glyphicon glyphicon-send"></span></button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
+</div><!-- /.container -->
+</body>
+
+
+
+</html>
