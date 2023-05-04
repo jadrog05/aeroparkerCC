@@ -24,6 +24,12 @@ public class CustomerService {
         return customerDao.addCustomer(c);
     }
 
+    public boolean deleteCustomerByEmail(String email){
+
+        String lowerCaseEmail = email.toLowerCase(); // ensures all email address are lowercase when added to db
+        return customerDao.deleteCustomerByEmail(lowerCaseEmail);
+    }
+
     public boolean emailExists(String email){
         email = email.toLowerCase(); //compared as all lowercase to ensure uniqueness
         if (customerDao.getCustomerByEmail(email) == null){

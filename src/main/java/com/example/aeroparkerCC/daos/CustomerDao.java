@@ -12,5 +12,7 @@ public interface CustomerDao {
 
     Customer addCustomer(Customer customer);
 
+    boolean deleteCustomerByEmail(String email);
+
     Customer getCustomerByEmail(String email);
 }

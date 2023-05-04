@@ -30,7 +30,11 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
             <input id="email" placeholder="E-Mail Address" class="form-control"  type="text" th:field="*{email_address}" th:onblur="javascript:validateEmail()">
           </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="email-alert">Please enter a valid email</span>
+          </div>
         </div>
+
       </div>
 
       <!-- Text input-->
@@ -40,6 +44,9 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input name="title" placeholder="Title" class="form-control" type="text" th:field="*{title}" th:onblur="javascript:validateString('title',5)">
+          </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="title-alert">Your title should between 1 and 5 characters</span>
           </div>
         </div>
       </div>
@@ -53,6 +60,9 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input  name="first_name" placeholder="First Name" class="form-control"  type="text" th:field="*{first_name}" th:onblur="javascript:validateString('first_name',50)">
           </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="first_name-alert">Your first name should be between 1 and 50 characters</span>
+          </div>
         </div>
       </div>
 
@@ -64,6 +74,9 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input name="last_name" placeholder="Last Name" class="form-control"  type="text" th:field="*{last_name}" th:onblur="javascript:validateString('last_name','50')">
+          </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="last_name-alert">Your last name should be between 1 and 50 characters</span>
           </div>
         </div>
       </div>
@@ -77,6 +90,9 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
             <input name="address_line_1" placeholder="Address line 1" class="form-control" type="text" th:field="*{address_line_1}" th:onblur="javascript:validateString('address_line_1','255')">
           </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="address_line_1-alert">Your address should be between 1 and 255 characters</span>
+          </div>
         </div>
       </div>
 
@@ -88,6 +104,9 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
             <input name="address_line_2" placeholder="Address line 2" class="form-control" type="text" th:field="*{address_line_2}" th:onblur="javascript:validateStringNullAllowed('address_line_2','255')">
+          </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="address_line_2-alert">This should be below 255 characters</span>
           </div>
         </div>
       </div>
@@ -101,6 +120,9 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
             <input name="city" placeholder="city" class="form-control"  type="text" th:field="*{city}" th:onblur="javascript:validateStringNullAllowed('city',255)">
           </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="city-alert">This should be below 255 characters</span>
+          </div>
         </div>
       </div>
 
@@ -113,6 +135,9 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
             <input name="postcode" placeholder="Postcode" class="form-control"  type="text" th:field="*{postcode}" th:onblur="javascript:validateString('postcode',10)">
           </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="postcode-alert">Your postcode should be between 1 and 10 characters</span>
+          </div>
         </div>
       </div>
 
@@ -124,6 +149,9 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
             <input id="phone" placeholder="07467342746" class="form-control" type="text" th:field="*{phone_number}" th:onblur="javascript:validatePhone()">
+          </div>
+          <div class="invalid-feedback">
+            <span style="display:none; color:red" id="phone-alert">Please enter only digits and less than 20 characters</span>
           </div>
         </div>
       </div>
