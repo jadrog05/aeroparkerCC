@@ -16,7 +16,7 @@ function validatePhone(){
     let element = document.getElementById("phone");
     let value = element.value;
     let re = /^[0-9]+$/;
-    if (re.test(value) && value.length < 20 ){
+    if (re.test(value) && value.length <= 20 ){
         document.getElementById("phone").style.background ="#e0fde0";
         document.getElementById("phone-alert").style.display = "none";
         return true;
