@@ -3,9 +3,11 @@ function validateEmail(){
     let email = document.getElementById("email").value;
     if (re.test(email) && (email.length < 255)) {
         document.getElementById("email").style.background ="#e0fde0";
+         document.getElementById("email-alert").style.display = "none";
         return true;
     } else {
         document.getElementById("email").style.background ="#ffdddc";
+        document.getElementById("email-alert").style.display = "block";
         return false;
     }
 }
@@ -16,35 +18,43 @@ function validatePhone(){
     let re = /^[0-9]+$/;
     if (re.test(value) && value.length < 20 ){
         document.getElementById("phone").style.background ="#e0fde0";
+        document.getElementById("phone-alert").style.display = "none";
         return true;
     } else {
         document.getElementById("phone").style.background ="#ffdddc";
+        document.getElementById("phone-alert").style.display = "block";
         return false;
     }
 }
 
 function validateString(x,chars){
     let element = document.getElementById(x);
+    let alert = document.getElementById(x + "-alert")
     let value = element.value;
     console.log(value.toString);
     if (value.length == 0 || value.length > chars ){
         element.style.background ="#ffdddc";
+        alert.style.display = 'block';
         return false;
     } else {
         element.style.background ="#e0fde0";
+        alert.style.display = "none";
         return true;
     }
 }
 
 function validateStringNullAllowed(x,chars){
     let element = document.getElementById(x);
+    let alert = document.getElementById(x + "-alert");
     let value = element.value;
     console.log(value.toString);
     if (value.length > x ){
         element.style.background ="#ffdddc";
+        alert.style.display = "block";
         return false;
     } else {
         element.style.background ="#e0fde0";
+        alert.style.display = "none";
         return true;
     }
 }

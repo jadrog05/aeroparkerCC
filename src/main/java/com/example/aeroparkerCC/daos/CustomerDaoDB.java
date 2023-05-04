@@ -64,6 +64,17 @@ public class CustomerDaoDB implements CustomerDao{
     }
 
     @Override
+    public boolean deleteCustomerByEmail(String email) {
+        try {
+            String DELETE_GUEST = "DELETE FROM Customers WHERE email_address = ?;";
+            jdbc.update(DELETE_GUEST, email);
+            return true;
+        } catch (DataAccessException e) {
+            return false;
+        }
+    }
+
+    @Override
     public Customer getCustomerByEmail(String email){
         try{
             String SELECT_CUSTOMER_BY_EMAIL = "SELECT * FROM Customers WHERE email_address = ?;";

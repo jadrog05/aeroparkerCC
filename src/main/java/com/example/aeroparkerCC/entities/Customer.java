@@ -112,4 +112,39 @@ public class Customer {
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer customer)) return false;
+
+        if (id != customer.id) return false;
+        if (!getRegistered().equals(customer.getRegistered())) return false;
+        if (!getEmail_address().equals(customer.getEmail_address())) return false;
+        if (!getTitle().equals(customer.getTitle())) return false;
+        if (!getFirst_name().equals(customer.getFirst_name())) return false;
+        if (!getLast_name().equals(customer.getLast_name())) return false;
+        if (!getAddress_line_1().equals(customer.getAddress_line_1())) return false;
+        if (getAddress_line_2() != null ? !getAddress_line_2().equals(customer.getAddress_line_2()) : customer.getAddress_line_2() != null)
+            return false;
+        if (getCity() != null ? !getCity().equals(customer.getCity()) : customer.getCity() != null) return false;
+        if (!getPostcode().equals(customer.getPostcode())) return false;
+        return getPhone_number().equals(customer.getPhone_number());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + getRegistered().hashCode();
+        result = 31 * result + getEmail_address().hashCode();
+        result = 31 * result + getTitle().hashCode();
+        result = 31 * result + getFirst_name().hashCode();
+        result = 31 * result + getLast_name().hashCode();
+        result = 31 * result + getAddress_line_1().hashCode();
+        result = 31 * result + (getAddress_line_2() != null ? getAddress_line_2().hashCode() : 0);
+        result = 31 * result + (getCity() != null ? getCity().hashCode() : 0);
+        result = 31 * result + getPostcode().hashCode();
+        result = 31 * result + getPhone_number().hashCode();
+        return result;
+    }
 }
