@@ -10,135 +10,49 @@
 </head>
 <body>
 <div class="container">
-<div class="well grid">
+
+<div class="col-md-8">
             <!-- Form Name -->
             <legend>Thank you for signing up! Here is your information:</legend>
-
-
             <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">E-Mail</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <span id="email" class="form-control"  type="text" th:text="${c.email_address}"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Registered Timestamp</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                        <span id="registered" class="form-control"  type="text" th:text="${c.registered}"></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Title</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <span name="title"  class="form-control" type="text" th:text="${c.title}"></span>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">First Name</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <span  name="first_name"  class="form-control"  type="text" th:text="${c.first_name}"></span>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" >Last Name</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <span name="last_name"  class="form-control"  type="text" th:text="${c.last_name}"></span>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Address Line 1</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <span name="address_line_1" class="form-control" type="text" th:text="${c.address_line_1}"></span>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Address Line 2</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <span name="address_line_2" class="form-control" type="text" th:text="${c.address_line_2}"></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">City</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <span name="city"  class="form-control"  type="text" th:text="${c.city}"></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Postcode</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <span name="postcode" class="form-control"  type="text" th:text="${c.postcode}"></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Phone #</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <span id="phone" class="form-control" type="text" th:text="${c.phone_number}"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-warning" onclick = "window.location.href='http://localhost:8080/registration';"> Back to Sign up <span class="glyphicon glyphicon-send"></span></button>
-
-                </div>
-            </div>
 </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4><span th:text="${c.title}"/> <span th:text="${c.first_name}"/> <span th:text="${c.last_name}"/></h4>
+                        <br/>
+                            <i class="glyphicon glyphicon-envelope"></i><span>  </span><span th:text="${c.email_address}"/>
+                            <br />
+                            <span style="font-weight:bold">Registered on: </span><span th:text="${c.registered}"/>
+                            <br />
+
+                            <span style="font-weight:bold">Address:</span>
+                            <br/>
+                            <span th:text="${c.address_line_1}"></span>
+                            <br/>
+                            <span th:text="${c.address_line_2}"></span>
+                            <br/>
+                            <span th:text="${c.city}"></span>
+                            <br/>
+                            <span th:text="${c.postcode}"/>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/registration'">
+                    Home</button>
+            </div>
+        </div>
+    </div>
 </div>
 </div><!-- /.container -->
 </body>
