@@ -7,52 +7,57 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" th:src="@{RegistrationForm.js}"></script>
+    <style>
+.vl {
+  border-left: 1px solid black;
+}
+</style>
+
+
 </head>
 <body>
 <div class="container">
 
-<div class="col-md-8">
+<div class="col-md-8 well">
             <!-- Form Name -->
             <legend>Thank you for signing up! Here is your information:</legend>
             <!-- Text input-->
-</div>
-
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png" alt="" class="img-rounded img-responsive" />
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4><span th:text="${c.title}"/> <span th:text="${c.first_name}"/> <span th:text="${c.last_name}"/></h4>
-                        <br/>
-                            <i class="glyphicon glyphicon-envelope"></i><span>  </span><span th:text="${c.email_address}"/>
-                            <br />
-                            <span style="font-weight:bold">Registered on: </span><span th:text="${c.registered}"/>
-                            <br />
-
-                            <span style="font-weight:bold">Address:</span>
-                            <br/>
-                            <span th:text="${c.address_line_1}"></span>
-                            <br/>
-                            <span th:text="${c.address_line_2}"></span>
-                            <br/>
-                            <span th:text="${c.city}"></span>
-                            <br/>
-                            <span th:text="${c.postcode}"/>
-
-
-                    </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-5">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png" alt="" class="img-rounded img-responsive" />
                 </div>
-
+                <div class="vl col-sm-6 col-md-7">
+                    <h4><span th:text="${c.title}"/> <span th:text="${c.first_name}"/> <span th:text="${c.last_name}"/></h4>
+                    <br/>
+                    <i class="glyphicon glyphicon-envelope"></i><span>  </span><span th:text="${c.email_address}"/>
+                    <br />
+                    <span style="font-weight:bold">Registered on: </span><span th:text="${c.registered}"/>
+                    <br />
+                    <br />
+                    <span style="font-weight:bold">Address:</span>
+                    <br/>
+                    <span th:text="${c.address_line_1}"></span>
+                    <br/>
+                    <span th:text="${c.address_line_2}"></span>
+                    <br/>
+                    <span th:text="${c.city}"></span>
+                    <br/>
+                    <span th:text="${c.postcode}"/>
+                </div>
             </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/registration'">
-                    Home</button>
+
+            <div class="row">
+            <button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/registration'">Home</button>
             </div>
         </div>
+
     </div>
+</div>
+</div>
+
+
 </div>
 </div><!-- /.container -->
 </body>
